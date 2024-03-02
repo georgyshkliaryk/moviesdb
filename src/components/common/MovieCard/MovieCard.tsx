@@ -28,7 +28,7 @@ const MovieCard: FC<MovieCardProps> = ({ title, overview, isAdult, posterUrl, re
   }, [releaseDate]);
 
   const roundedRating = rating.toFixed(2);
-  const votesText = (ratingCount === 1) ? 'vote' : 'votes';
+  const votesText = ratingCount === 1 ? 'vote' : 'votes';
 
   return (
     <div className={styles.container}>
@@ -40,7 +40,7 @@ const MovieCard: FC<MovieCardProps> = ({ title, overview, isAdult, posterUrl, re
       <div className={styles.info}>
         {isAdult && <AdultIcon className={styles.adultIcon} />}
         <div className={classNames(styles.rating, mapRatingTypeToClassName[getRatingColor(rating)])}>
-          <RatingIcon className={styles.ratingIcon}/> {roundedRating} ({ratingCount} {votesText})
+          <RatingIcon className={styles.ratingIcon} /> {roundedRating} ({ratingCount} {votesText})
         </div>
       </div>
     </div>
