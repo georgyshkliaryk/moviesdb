@@ -1,6 +1,7 @@
 import { FC, useMemo } from 'react';
 import classNames from 'classnames';
 import { getRatingColor, RatingType } from '../../../helpers/getRatingColor';
+import { posterPath } from '../../../constants/paths';
 import { ReactComponent as AdultIcon } from '../../../assets/icons/adult.svg';
 import { ReactComponent as RatingIcon } from '../../../assets/icons/rating.svg';
 import styles from './MovieCard.module.scss';
@@ -32,7 +33,7 @@ const MovieCard: FC<MovieCardProps> = ({ title, overview, isAdult, posterUrl, re
 
   return (
     <div className={styles.container}>
-      <img src={`https://image.tmdb.org/t/p/w500${posterUrl}`} alt="" className={styles.image} />
+      <img src={`${posterPath}${posterUrl}`} alt="" className={styles.image} />
       <div className={styles.title}>
         {title} ({releaseYear})
       </div>

@@ -4,7 +4,7 @@ export enum RatingType {
   high,
 }
 
-export const getRatingColor = (rating: number) => {
+export const getRatingColor = (rating: number): RatingType => {
   if (rating >= 7) {
     return RatingType.high;
   }
