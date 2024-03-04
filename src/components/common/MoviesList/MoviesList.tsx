@@ -24,6 +24,7 @@ const MoviesList: FC<MoviesListProps> = ({ list }) => {
       {list?.results.map((movie) => (
         <MovieCard
           key={movie.id}
+          id={movie.id}
           posterUrl={movie.poster_path}
           title={movie.title}
           overview={movie.overview}

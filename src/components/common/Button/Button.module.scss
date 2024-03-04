@@ -8,6 +8,9 @@
     color: #000;
     font-size: 20px;
     text-align: center;
+    font-weight: 700;
+    height: min-content;
+    outline: none;
 
     &:last-child {
         margin-right: 0;
@@ -15,7 +18,7 @@
 
     &:hover,
     &:focus-visible {
-        background-color: lightgrey;
+        background-color: grey;
         transition: background-color 0.2s;
     }
 }

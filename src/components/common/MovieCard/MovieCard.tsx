@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { getRatingColor, RatingType } from '../../../helpers/getRatingColor';
 import { posterPath } from '../../../constants/paths';
 import { ReactComponent as AdultIcon } from '../../../assets/icons/adult.svg';
@@ -13,6 +14,7 @@ const mapRatingTypeToClassName = {
 };
 
 interface MovieCardProps {
+  id: number;
   title: string;
   overview: string;
   isAdult: boolean;
@@ -22,7 +24,16 @@ interface MovieCardProps {
   ratingCount: number;
 }
 
-const MovieCard: FC<MovieCardProps> = ({ title, overview, isAdult, posterUrl, releaseDate, rating, ratingCount }) => {
+const MovieCard: FC<MovieCardProps> = ({
+  id,
+  title,
+  overview,
+  isAdult,
+  posterUrl,
+  releaseDate,
+  rating,
+  ratingCount,
+}) => {
   const releaseYear = useMemo(() => {
     const movieDate = new Date(releaseDate);
     return movieDate.getFullYear();
@@ -33,10 +44,10 @@ const MovieCard: FC<MovieCardProps> = ({ title, overview, isAdult, posterUrl, re
 
   return (
     <div className={styles.container}>
-      <img src={`${posterPath}${posterUrl}`} alt="" className={styles.image} />
-      <div className={styles.title}>
+      <img src={`${posterPath}/w500/${posterUrl}`} alt={title} className={styles.image} />
+      <Link className={styles.title} to={`/movie/${id}`}>
         {title} ({releaseYear})
-      </div>
+      </Link>
       <div className={styles.overview}>{overview}</div>
       <div className={styles.info}>
         {isAdult && <AdultIcon className={styles.adultIcon} />}

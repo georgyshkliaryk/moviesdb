@@ -4,5 +4,7 @@
 
 .title {
     font-size: 60px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
 }

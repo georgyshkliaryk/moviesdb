@@ -14,6 +14,16 @@
     margin-bottom: 15px;
     margin-top: 10px;
     font-weight: 700;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover,
+    &:focus-visible {
+        color: grey;
+        transition: color 0.2s;
+        outline: none;
+    }
 }
 
 .overview {

@@ -1,1 +1,1 @@
-export const moviesListEndpoint = 'https://api.themoviedb.org/3/movie';
+export const moviesEndpoint = 'https://api.themoviedb.org/3/movie';

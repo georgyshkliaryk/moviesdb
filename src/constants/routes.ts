@@ -4,5 +4,6 @@ export const routes = {
     nowPlaying: '/now-playing',
     popular: '/popular',
     topRated: '/top-rated',
+    comingSoon: '/coming-soon',
   },
 };

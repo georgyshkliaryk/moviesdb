@@ -14,6 +14,6 @@ export const getData = async (url: string): Promise<any> => {
     const json = await response.json();
     return json;
   } catch (e: any) {
-    throw new Error(e);
+    throw Error(e);
   }
 };
