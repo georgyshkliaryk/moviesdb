@@ -2,9 +2,14 @@
     padding: 20px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 .title {
     font-size: 60px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
 }

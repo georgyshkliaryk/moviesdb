@@ -6,6 +6,7 @@ import Button from '../../components/common/Button/Button';
 import { routes } from '../../constants/routes';
 import Loading from '../../components/common/Loading/Loading';
 import MoviesList from '../../components/common/MoviesList/MoviesList';
+import Search from '../../components/common/Search/Search';
 import styles from './MoviesPage.module.scss';
 
 interface MoviesPageProps {
@@ -22,10 +23,11 @@ const MoviesPage: FC<MoviesPageProps> = ({ endpointUrl, title }) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
+      <div className={styles.header}>
         <Button text={'Go back home'} url={routes.home} />
-        {title}
-      </h1>
+        <h1 className={styles.title}>{title}</h1>
+        <Search />
+      </div>
       {isLoading ? <Loading /> : <MoviesList list={moviesList} />}
     </div>
   );

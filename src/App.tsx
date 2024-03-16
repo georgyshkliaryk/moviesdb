@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { moviesEndpoint } from './constants/endpoints';
+import { getMoviesEndpoint } from './constants/endpoints';
 import { routes } from './constants/routes';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
@@ -14,19 +14,19 @@ const router = createBrowserRouter([
   },
   {
     path: routes.moviesList.nowPlaying,
-    element: <MoviesPage title={'Now Playing'} endpointUrl={`${moviesEndpoint}/now_playing`} />,
+    element: <MoviesPage title={'Now Playing'} endpointUrl={`${getMoviesEndpoint}/now_playing`} />,
   },
   {
     path: routes.moviesList.popular,
-    element: <MoviesPage title={'Popular Movies'} endpointUrl={`${moviesEndpoint}/popular`} />,
+    element: <MoviesPage title={'Popular Movies'} endpointUrl={`${getMoviesEndpoint}/popular`} />,
   },
   {
     path: routes.moviesList.topRated,
-    element: <MoviesPage title={'Top Rated'} endpointUrl={`${moviesEndpoint}/top_rated`} />,
+    element: <MoviesPage title={'Top Rated'} endpointUrl={`${getMoviesEndpoint}/top_rated`} />,
   },
   {
     path: routes.moviesList.comingSoon,
-    element: <MoviesPage title={'Coming Soon'} endpointUrl={`${moviesEndpoint}/upcoming`} />,
+    element: <MoviesPage title={'Coming Soon'} endpointUrl={`${getMoviesEndpoint}/upcoming`} />,
   },
   {
     path: '/movie/:id',

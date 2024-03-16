@@ -6,7 +6,7 @@ import Loading from '../../components/common/Loading/Loading';
 import Button from '../../components/common/Button/Button';
 import { routes } from '../../constants/routes';
 import { imdbTitlePath, posterPath } from '../../constants/paths';
-import { moviesEndpoint } from '../../constants/endpoints';
+import { getMoviesEndpoint } from '../../constants/endpoints';
 import { ReactComponent as ImdbLogo } from '../../assets/icons/imdb.svg';
 import styles from './MoviePage.module.scss';
 
@@ -48,7 +48,7 @@ const getMovieInfo = (endpointUrl: string): Promise<MovieInfo> => {
 
 const MoviePage: FC = () => {
   const { id: movieId } = useParams();
-  const { data: movieInfo, isLoading } = useFetchData(() => getMovieInfo(`${moviesEndpoint}/${movieId}`));
+  const { data: movieInfo, isLoading } = useFetchData(() => getMovieInfo(`${getMoviesEndpoint}/${movieId}`));
 
   const {
     backdrop_path,

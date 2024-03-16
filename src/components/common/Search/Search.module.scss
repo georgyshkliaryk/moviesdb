@@ -1,0 +1,67 @@
+.container {
+    position: relative;
+}
+
+.input {
+    width: 330px;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+}
+
+.results {
+    width: 350px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #121212;
+    margin-top: 15px;
+    border: 1px solid grey;
+}
+
+.result {
+    list-style-type: none;
+    display: block;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    text-decoration: none;
+    transition: background-color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+        background-color: #3d3d3d;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.image {
+    height: 100px;
+}
+
+.title {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.overview {
+    font-size: 12px;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    color: lightgrey;
+}
+
+.info {
+    padding: 10px;
+}
+
+.year {
+    color: grey;
+    font-size: 14px;
+    margin-bottom: 5px;
+}

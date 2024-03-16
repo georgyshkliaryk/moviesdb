@@ -2,8 +2,14 @@
 // Please do not change this file!
 interface CssExports {
   container: string;
-  header: string;
+  image: string;
+  info: string;
+  input: string;
+  overview: string;
+  result: string;
+  results: string;
   title: string;
+  year: string;
 }
 export const cssExports: CssExports;
 export default cssExports;
