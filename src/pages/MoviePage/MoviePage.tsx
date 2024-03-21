@@ -99,8 +99,8 @@ const MoviePage: FC = () => {
 
     return (
       <div className={styles.companies}>
-        {production_companies.map(
-          (company) =>
+        {production_companies.map((company) => {
+          return (
             company.logo_path && (
               <img
                 key={company.id}
@@ -110,7 +110,8 @@ const MoviePage: FC = () => {
                 title={company.name}
               />
             )
-        )}
+          );
+        })}
       </div>
     );
   }, [movieInfo?.production_countries]);
