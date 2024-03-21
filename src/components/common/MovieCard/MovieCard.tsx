@@ -1,6 +1,7 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import { getReleaseYear } from '../../../helpers/getFullYear';
 import { getRatingColor, RatingType } from '../../../helpers/getRatingColor';
 import { posterPath } from '../../../constants/paths';
 import { ReactComponent as AdultIcon } from '../../../assets/icons/adult.svg';
@@ -34,11 +35,6 @@ const MovieCard: FC<MovieCardProps> = ({
   rating,
   ratingCount,
 }) => {
-  const releaseYear = useMemo(() => {
-    const movieDate = new Date(releaseDate);
-    return movieDate.getFullYear();
-  }, [releaseDate]);
-
   const roundedRating = rating.toFixed(2);
   const votesText = ratingCount === 1 ? 'vote' : 'votes';
 
@@ -46,7 +42,7 @@ const MovieCard: FC<MovieCardProps> = ({
     <div className={styles.container}>
       <img src={`${posterPath}/w500/${posterUrl}`} alt={title} className={styles.image} />
       <Link className={styles.title} to={`/movie/${id}`}>
-        {title} ({releaseYear})
+        {title} {releaseDate && `(${getReleaseYear(releaseDate)})`}
       </Link>
       <div className={styles.overview}>{overview}</div>
       <div className={styles.info}>

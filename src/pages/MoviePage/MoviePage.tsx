@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getData } from '../../helpers/sendRequest';
 import useFetchData from '../../hooks/useFetchData';
 import Loading from '../../components/common/Loading/Loading';
@@ -48,6 +48,8 @@ const getMovieInfo = (endpointUrl: string): Promise<MovieInfo> => {
 
 const MoviePage: FC = () => {
   const { id: movieId } = useParams();
+  const navigate = useNavigate();
+
   const { data: movieInfo, isLoading } = useFetchData(() => getMovieInfo(`${getMoviesEndpoint}/${movieId}`));
 
   const {
@@ -97,18 +99,18 @@ const MoviePage: FC = () => {
 
     return (
       <div className={styles.companies}>
-        {production_companies.map((company) => (
-          <>
-            {company.logo_path && (
+        {production_companies.map(
+          (company) =>
+            company.logo_path && (
               <img
+                key={company.id}
                 src={`${posterPath}/w185/${company.logo_path}`}
                 alt={company.name}
                 className={styles.companyLogo}
                 title={company.name}
               />
-            )}
-          </>
-        ))}
+            )
+        )}
       </div>
     );
   }, [movieInfo?.production_countries]);
@@ -191,7 +193,7 @@ const MoviePage: FC = () => {
         ))}
         <div className={styles.overview}>{overview}</div>
         {productionCompanies}
-        <Button text={'Go back home'} url={routes.home} customClassName={styles.goHomeButton} />
+        <Button text={'Go back'} onClick={() => navigate(-1)} customClassName={styles.goHomeButton} />
       </div>
     </div>
   );
