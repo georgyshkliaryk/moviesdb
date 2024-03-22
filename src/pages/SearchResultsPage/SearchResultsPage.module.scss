@@ -21,20 +21,19 @@
 
 .movie {
     display: flex;
-    width: 500px;
+    width: 30%;
     padding: 10px;
     border: 1px solid grey;
 }
 
 .image {
     height: 200px;
-    min-width: 120px;
-    object-fit: cover;
 }
 
 .movieInfo {
     margin-left: 20px;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .year {

@@ -2,6 +2,7 @@ import { FC, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getData } from '../../helpers/sendRequest';
 import useFetchData from '../../hooks/useFetchData';
+import Img, { ImageWidthTypes } from '../../components/common/Img/Img';
 import Loading from '../../components/common/Loading/Loading';
 import Button from '../../components/common/Button/Button';
 import { routes } from '../../constants/routes';
@@ -23,7 +24,7 @@ interface MovieInfo {
     name: string;
     iso_3166_1: string;
   }[];
-  poster_path: string;
+  poster_path: string | null;
   overview: string;
   imdb_id: string;
   genres: {
@@ -61,7 +62,6 @@ const MoviePage: FC = () => {
     imdb_id,
     genres,
     budget,
-    adult,
     runtime,
     tagline,
     production_countries,
@@ -136,7 +136,7 @@ const MoviePage: FC = () => {
     <div className={styles.container} style={{ backgroundImage: `url('${backgroundPoserUrl}')` }}>
       <div className={styles.card}>
         <div className={styles.cardHeading}>
-          <img src={posterUrl} alt={title} className={styles.image} />
+          <Img url={poster_path} width={ImageWidthTypes.w500} alt={title} customClassName={styles.image} />
           <div className={styles.info}>
             {!!formattedReleaseDate && (
               <div className={styles.infoItem}>

@@ -3,13 +3,13 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import useFetchData from '../../hooks/useFetchData';
 import { getData } from '../../helpers/sendRequest';
 import { searchMovieEndpoint } from '../../constants/endpoints';
-import { posterPath } from '../../constants/paths';
 import { routes } from '../../constants/routes';
 import { getReleaseYear } from '../../helpers/getFullYear';
+import Button from '../../components/common/Button/Button';
+import Img, { ImageWidthTypes } from '../../components/common/Img/Img';
 import Rating from '../../components/common/Rating/Rating';
 import { MoviesListResponse } from '../MoviesPage/types';
 import styles from './SearchResultsPage.module.scss';
-import Button from '../../components/common/Button/Button';
 
 const getMoviesList = (endpointUrl: string): Promise<MoviesListResponse> => {
   return getData(endpointUrl);
@@ -17,10 +17,11 @@ const getMoviesList = (endpointUrl: string): Promise<MoviesListResponse> => {
 
 const SearchResultsPage: FC = () => {
   const { value: searchValue } = useParams();
+  const navigate = useNavigate();
+
   const { data: moviesList, isLoading } = useFetchData(() =>
     getMoviesList(`${searchMovieEndpoint}?query=${searchValue}`)
   );
-  const navigate = useNavigate();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -36,7 +37,12 @@ const SearchResultsPage: FC = () => {
         <ul className={styles.list}>
           {moviesList.results.map((movie) => (
             <li className={styles.movie} key={movie.id}>
-              <img src={`${posterPath}/w185/${movie.poster_path}`} alt={movie.title} className={styles.image} />
+              <Img
+                url={movie.poster_path}
+                width={ImageWidthTypes.w185}
+                alt={movie.title}
+                customClassName={styles.image}
+              />
               <div className={styles.movieInfo}>
                 <Link className={styles.movieTitle} to={`${routes.movie}/${movie.id}`}>
                   {movie.title}

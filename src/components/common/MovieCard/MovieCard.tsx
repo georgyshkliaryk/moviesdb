@@ -5,13 +5,14 @@ import { posterPath } from '../../../constants/paths';
 import Rating from '../Rating/Rating';
 import { ReactComponent as AdultIcon } from '../../../assets/icons/adult.svg';
 import styles from './MovieCard.module.scss';
+import Img, { ImageWidthTypes } from '../Img/Img';
 
 interface MovieCardProps {
   id: number;
   title: string;
   overview: string;
   isAdult: boolean;
-  posterUrl: string;
+  posterUrl: string | null;
   releaseDate: string;
   rating: number;
   ratingCount: number;
@@ -29,7 +30,7 @@ const MovieCard: FC<MovieCardProps> = ({
 }) => {
   return (
     <div className={styles.container}>
-      <img src={`${posterPath}/w500/${posterUrl}`} alt={title} className={styles.image} />
+      <Img url={posterUrl} width={ImageWidthTypes.w342} alt={title} customClassName={styles.image} />
       <Link className={styles.title} to={`/movie/${id}`}>
         {title} {releaseDate && `(${getReleaseYear(releaseDate)})`}
       </Link>

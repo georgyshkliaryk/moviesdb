@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../../../../constants/routes';
-import { posterPath } from '../../../../constants/paths';
+import Img, { ImageWidthTypes } from '../../Img/Img';
 import { Movie } from '../../../../pages/MoviesPage/types';
 import { getReleaseYear } from '../../../../helpers/getFullYear';
 import { ReactComponent as Spinner } from '../../../../assets/icons/spinner.svg';
@@ -33,9 +33,7 @@ const SearchResults: FC<SearchResultsProps> = ({ searchResults, isLoading, isNoR
 
     return searchResults.slice(0, maxResultsLength).map((movie) => (
       <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.result}>
-        {!!movie.poster_path && (
-          <img src={`${posterPath}/w185/${movie.poster_path}`} alt={movie.title} className={styles.image} />
-        )}
+        <Img url={movie.poster_path} width={ImageWidthTypes.w185} alt={movie.title} customClassName={styles.image} />
         <div className={styles.info}>
           <div className={styles.title}>{movie.title}</div>
           <div className={styles.year}>{getReleaseYear(movie.release_date)}</div>
