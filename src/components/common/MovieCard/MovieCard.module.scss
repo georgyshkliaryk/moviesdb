@@ -20,11 +20,11 @@
     display: block;
     text-decoration: none;
     color: #fff;
+    transition: color 0.2s;
 
     &:hover,
     &:focus-visible {
         color: grey;
-        transition: color 0.2s;
         outline: none;
     }
 }
@@ -53,27 +53,5 @@
 }
 
 .rating {
-    display: flex;
-    align-items: center;
     margin: 0 0 0 auto;
-
-    &.isLow {
-        color: red;
-    }
-
-    &.isMid {
-        color: yellow;
-    }
-
-    &.isHigh {
-        color: rgb(0, 255, 0);
-    }
-}
-
-.ratingIcon {
-    fill: yellow;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-right: 5px;
 }

@@ -194,7 +194,7 @@ const MoviePage: FC = () => {
         ))}
         <div className={styles.overview}>{overview}</div>
         {productionCompanies}
-        <Button text={'Go back'} onClick={() => navigate(-1)} customClassName={styles.goHomeButton} />
+        <Button text={'Go back'} onClick={() => navigate(-1)} customClassName={styles.goBackButton} />
       </div>
     </div>
   );

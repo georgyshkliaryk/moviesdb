@@ -5,6 +5,7 @@ import { routes } from './constants/routes';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
 import MoviePage from './pages/MoviePage/MoviePage';
+import SearchResultsPage from './pages/SearchResultsPage/SearchResultsPage';
 import './App.scss';
 
 const router = createBrowserRouter([
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
     element: <MoviesPage title={'Coming Soon'} endpointUrl={`${getMoviesEndpoint}/upcoming`} />,
   },
   {
-    path: '/movie/:id',
+    path: `${routes.movie}/:id`,
     element: <MoviePage />,
+  },
+  {
+    path: `${routes.searchResults}/:value`,
+    element: <SearchResultsPage />,
   },
 ]);
 

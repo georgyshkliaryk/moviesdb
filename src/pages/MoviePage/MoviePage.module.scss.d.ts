@@ -8,7 +8,7 @@ interface CssExports {
   container: string;
   country: string;
   genre: string;
-  goHomeButton: string;
+  goBackButton: string;
   image: string;
   imdbLogo: string;
   info: string;

@@ -5,8 +5,6 @@ import { Movie, MoviesListResponse } from '../../../pages/MoviesPage/types';
 import SearchResults from './SearchResults/SearchResults';
 import styles from './Search.module.scss';
 
-const maxResultsLength = 5;
-
 const getMoviesList = (endpointUrl: string): Promise<MoviesListResponse> => {
   return getData(endpointUrl);
 };
@@ -41,8 +39,7 @@ const Search: FC = () => {
     const value = e.target.value;
     setInputValue(value);
     const results = (await getMoviesList(`${searchMovieEndpoint}?query=${value}`)).results;
-    const trimmedResults = results.slice(0, maxResultsLength);
-    setSearchResults(trimmedResults);
+    setSearchResults(results);
     setIsLoading(false);
   };
 
@@ -52,7 +49,12 @@ const Search: FC = () => {
     <div className={styles.container} ref={containerRef}>
       <input type="text" placeholder="Search for a movie" className={styles.input} onChange={handleChange} />
       {!!inputValue.length && isListShown && (
-        <SearchResults searchResults={searchResults} isLoading={isLoading} isNoResults={isNoResults} />
+        <SearchResults
+          searchResults={searchResults}
+          isLoading={isLoading}
+          isNoResults={isNoResults}
+          searchValue={inputValue}
+        />
       )}
     </div>
   );

@@ -1,0 +1,24 @@
+.rating {
+    display: flex;
+    align-items: center;
+
+    &.isLow {
+        color: red;
+    }
+
+    &.isMid {
+        color: yellow;
+    }
+
+    &.isHigh {
+        color: rgb(0, 255, 0);
+    }
+}
+
+.ratingIcon {
+    fill: yellow;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-right: 5px;
+}

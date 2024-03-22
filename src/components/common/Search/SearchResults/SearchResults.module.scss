@@ -20,6 +20,7 @@
     &:hover,
     &:focus-visible {
         background-color: #3d3d3d;
+        outline: none;
     }
 
     &:last-child {
@@ -83,4 +84,19 @@
     fill: #fff;
     will-change: transform;
     margin-top: 20px;
+}
+
+.showMore {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 5px;
+    font-size: 14px;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+        color: grey;
+        outline: none;
+    }
 }
