@@ -5,10 +5,12 @@ interface CssExports {
   heading: string;
   image: string;
   list: string;
+  loading: string;
   movie: string;
   movieInfo: string;
   movieOverview: string;
   movieTitle: string;
+  noResults: string;
   rating: string;
   title: string;
   year: string;

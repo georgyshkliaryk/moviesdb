@@ -5,6 +5,7 @@ import { getData } from '../../helpers/sendRequest';
 import { searchMovieEndpoint } from '../../constants/endpoints';
 import { routes } from '../../constants/routes';
 import { getReleaseYear } from '../../helpers/getFullYear';
+import Loading from '../../components/common/Loading/Loading';
 import Button from '../../components/common/Button/Button';
 import Img, { ImageWidthTypes } from '../../components/common/Img/Img';
 import Rating from '../../components/common/Rating/Rating';
@@ -24,7 +25,7 @@ const SearchResultsPage: FC = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading customClassName={styles.loading} />;
   }
 
   return (
@@ -55,7 +56,7 @@ const SearchResultsPage: FC = () => {
           ))}
         </ul>
       ) : (
-        <div>No results</div>
+        <div className={styles.noResults}>No results found.</div>
       )}
     </div>
   );

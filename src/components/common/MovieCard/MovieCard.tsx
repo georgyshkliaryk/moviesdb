@@ -32,9 +32,10 @@ const MovieCard: FC<MovieCardProps> = ({
     <div className={styles.container}>
       <Img url={posterUrl} width={ImageWidthTypes.w342} alt={title} customClassName={styles.image} />
       <Link className={styles.title} to={`/movie/${id}`}>
-        {title} {releaseDate && `(${getReleaseYear(releaseDate)})`}
+        {title}
       </Link>
-      <div className={styles.overview}>{overview}</div>
+      {releaseDate && <div className={styles.year}>{getReleaseYear(releaseDate)}</div>}
+      {!!overview && <div className={styles.overview}>{overview}</div>}
       <div className={styles.info}>
         {isAdult && <AdultIcon className={styles.adultIcon} />}
         <Rating rating={rating} ratingCount={ratingCount} customClassName={styles.rating} />

@@ -8,6 +8,7 @@ interface CssExports {
   overview: string;
   rating: string;
   title: string;
+  year: string;
 }
 export const cssExports: CssExports;
 export default cssExports;
